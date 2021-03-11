@@ -19,7 +19,7 @@ powerDT <- data.table::fread(input = "household_power_consumption.txt"
                              , na.strings="?"
 )
 
-### ... preventing histogram from printing in scientific notation
+### ... preventing scientific notation
 powerDT[, Global_active_power := lapply(.SD, as.numeric), .SDcols = c("Global_active_power")]
 
 ### ... making a POSIXct date capable of being filtered and graphed by time of day
